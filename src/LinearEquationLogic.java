@@ -5,7 +5,7 @@ public class LinearEquationLogic {
     String coordinate2;
     private LinearEquation line;
 
-    public LinearEquationLogic(String coordinate1, String coordinate2) {
+    public LinearEquationLogic() {
         scan = new Scanner(System.in);
         line = null;
         this.coordinate1 = coordinate1;
