@@ -31,4 +31,9 @@ public class LinearEquationLogic {
         int y2 = Integer.parseInt(coordinate2.substring(commaIndex2 + 2, coordinate2Length));
         line = new LinearEquation(x1, x2, y1, y2);
     }
+    public void coordinatePair() {
+        System.out.println("Enter a value for x: ");
+        String xCoord = scan.nextLine();
+
+    }
 }
