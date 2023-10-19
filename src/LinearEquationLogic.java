@@ -5,24 +5,23 @@ public class LinearEquationLogic {
     String coordinate2;
     private LinearEquation line;
 
+
     public LinearEquationLogic() {
         scan = new Scanner(System.in);
-        line = null;
         this.coordinate1 = coordinate1;
         this.coordinate2 = coordinate2;
     }
     public void start() {
         System.out.println("Welcome to the linear equation calculator!");
-        getCoordinates();
-        getPoints();
-        line.lineInfo();
-        coordinatePair();
-        continueGame();
-        while (continueGame()) {
+        boolean flag = true;
+        while (flag) {
             getCoordinates();
-            getPoints();
-            line.lineInfo();
-            coordinatePair();
+            line = getPoints();
+            if (line != null) {
+                line.lineInfo();
+                coordinatePair();
+            }
+            flag = continueGame();
         }
     }
     public void getCoordinates() {
@@ -31,7 +30,7 @@ public class LinearEquationLogic {
         System.out.print("Enter coordinate 2: ");
         coordinate2 = scan.nextLine();
     }
-    public void getPoints() {
+    public LinearEquation getPoints() {
         int commaIndex1 = coordinate1.indexOf(",");
         int commaIndex2 = coordinate2.indexOf(",");
         int coordinate1Length = coordinate1.length();
@@ -40,7 +39,11 @@ public class LinearEquationLogic {
         int x2 = Integer.parseInt(coordinate2.substring(1, commaIndex2));
         int y1 = Integer.parseInt(coordinate1.substring(commaIndex1 + 2, coordinate1Length - 1));
         int y2 = Integer.parseInt(coordinate2.substring(commaIndex2 + 2, coordinate2Length - 1));
-        line = new LinearEquation(x1, x2, y1, y2);
+        if (x1 != x2) {
+            return new LinearEquation(x1, x2, y1, y2);
+        } else {
+            return null;
+        }
     }
     public void coordinatePair() {
         System.out.println("Enter a value for x: ");

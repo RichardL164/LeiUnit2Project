@@ -17,8 +17,13 @@ public class LinearEquation {
         return "y = " + slope() + "x + " + yIntercept();
     }
     public double slope() {
-        double slope = (double) (y2 - y1) / (x2 - x1);
-        return roundToHundredth(slope);
+        if (y1 == y2) {
+            double slope = y1;
+            return roundToHundredth(slope);
+        } else {
+            double slope = (double) (y2 - y1) / (x2 - x1);
+            return roundToHundredth(slope);
+        }
     }
     public double yIntercept() {
         double yIntercept = y1 - slope() * x1;
