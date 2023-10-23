@@ -14,8 +14,19 @@ public class LinearEquation {
         return Math.round(toRound * 100) / 100.0;
     }
     public String equation() {
-        return "y = " + slope() + "x + " + yIntercept();
+        int x = x1 - x2;
+        int y = y1 - y2;
+        if (y % x == 0) {
+            int newSlope = y / x;
+            return "y = " + newSlope + "x + " + yIntercept();
+        } else if (y / x == 1) {
+            return "y = " + "x + " + yIntercept();
+        } else if (y / x == -1) {
+            return "y = " + "-x + " + yIntercept();
+        } else if (y / x )
+        return "y = " + y + "/" + x + "x + " + yIntercept();
     }
+
     public double slope() {
         if (y1 == y2) {
             double slope = y1;
