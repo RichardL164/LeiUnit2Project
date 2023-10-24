@@ -4,12 +4,14 @@ public class LinearEquationLogic {
     String coordinate1;
     String coordinate2;
     private LinearEquation line;
+    private boolean repeat;
 
 
     public LinearEquationLogic() {
         scan = new Scanner(System.in);
         this.coordinate1 = coordinate1;
         this.coordinate2 = coordinate2;
+        repeat = true;
     }
     public void start() {
         System.out.println("Welcome to the linear equation calculator!");
