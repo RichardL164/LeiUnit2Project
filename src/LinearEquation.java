@@ -4,10 +4,10 @@ public class LinearEquation {
     private int y1;
     private int y2;
 
-    public LinearEquation(int x1, int x2, int y1, int y2) {
+    public LinearEquation(int x1, int y1, int x2, int y2) {
         this.x1 = x1;
-        this.x2 = x2;
         this.y1 = y1;
+        this.x2 = x2;
         this.y2 = y2;
     }
     public double roundToHundredth(double toRound) {
@@ -72,16 +72,19 @@ public class LinearEquation {
         double yCoord = x * slope() + yIntercept();
         return "The point on the line is: (" + x + ", " + roundToHundredth(yCoord) + ")";
     }
-    public void lineInfo() {
+    public String lineInfo() {
+        String info = "";
         if (x1 != x2) {
-            System.out.println("The two points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")");
-            System.out.println("The equation of the line between these two points is: " + equation());
-            System.out.println("The slope of this line is: " + slope());
-            System.out.println("The y-intercept of this line is: " + yIntercept());
-            System.out.println("The distance between these points is: " + distance());
+            String twoPoints = "The two points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")";
+            String lineEquation = "The equation of the line between these two points is: " + equation();
+            String slope = "The slope of this line is: " + slope();
+            String yIntercept = "The y-intercept of this line is: " + yIntercept();
+            String distance = "The distance between these points is: " + distance();
+            info += twoPoints + "\n" + lineEquation + "\n" + slope  + "\n" + yIntercept  + "\n" + distance;
+            return info;
         }
         else {
-            System.out.println("These points are on a vertical line x = " + x1);
+            return "These points are on a vertical line x = " + x1;
         }
     }
 }

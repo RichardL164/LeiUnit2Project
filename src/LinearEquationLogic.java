@@ -20,7 +20,7 @@ public class LinearEquationLogic {
             getCoordinates();
             line = getPoints();
             if (line != null) {
-                line.lineInfo();
+                System.out.println(line.lineInfo());
                 coordinatePair();
             }
             repeat = continueGame();
@@ -42,7 +42,7 @@ public class LinearEquationLogic {
         int y1 = Integer.parseInt(coordinate1.substring(commaIndex1 + 2, coordinate1Length - 1));
         int y2 = Integer.parseInt(coordinate2.substring(commaIndex2 + 2, coordinate2Length - 1));
         if (x1 != x2) {
-            return new LinearEquation(x1, x2, y1, y2);
+            return new LinearEquation(x1, y1, x2, y2);
         } else {
             return null;
         }
@@ -50,6 +50,7 @@ public class LinearEquationLogic {
     public void coordinatePair() {
         System.out.println("Enter a value for x: ");
         double xCoord = scan.nextDouble();
+        scan.nextLine();
         System.out.println(line.coordinateForX(xCoord));
     }
     public boolean continueGame() {
