@@ -15,15 +15,15 @@ public class LinearEquationLogic {
     }
     public void start() {
         System.out.println("Welcome to the linear equation calculator!");
-        boolean flag = true;
-        while (flag) {
+        boolean repeat = true;
+        while (repeat) {
             getCoordinates();
             line = getPoints();
             if (line != null) {
                 line.lineInfo();
                 coordinatePair();
             }
-            flag = continueGame();
+            repeat = continueGame();
         }
     }
     public void getCoordinates() {
@@ -55,8 +55,6 @@ public class LinearEquationLogic {
     public boolean continueGame() {
         System.out.print("Would you like to enter another pair of coordinates? y/n: ");
         String continueGame = scan.nextLine();
-        if (continueGame.equals("y")) {
-            return true;
-        } return false;
+        return continueGame.equals("y");
     }
 }
